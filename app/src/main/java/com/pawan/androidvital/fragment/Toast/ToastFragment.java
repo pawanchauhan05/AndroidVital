@@ -18,7 +18,6 @@ public class ToastFragment extends Fragment implements View.OnClickListener{
 
     private Button buttonShortToast, buttonLongToast;
     public ToastFragment() {
-        // Required empty public constructor
     }
 
 

@@ -33,8 +33,8 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        hellotext = (TextView)findViewById(R.id.hellotext);
-        hellotext.setTypeface(Utils.customFontText(this));
+        //hellotext = (TextView)findViewById(R.id.hellotext);
+        //hellotext.setTypeface(Utils.customFontText(this));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

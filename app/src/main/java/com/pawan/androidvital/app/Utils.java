@@ -111,8 +111,9 @@ public class Utils {
      * @param context
      */
     public static Typeface customFontText(Context context) {
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/custom.otf");
-        return typeface;
+        //Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/custom.otf");
+        //return typeface;
+        return null;
     }
 
 }
