@@ -17,8 +17,7 @@ import android.view.MenuItem;
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
-public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
