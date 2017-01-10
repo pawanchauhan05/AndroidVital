@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
+import com.pawan.androidvital.fragment.Toast.ListView.ListViewFragment;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
 import org.w3c.dom.Text;
@@ -95,6 +96,8 @@ public class HomeActivity extends AppCompatActivity
         Fragment fragment = null;
         if (id == R.id.nav_toast) {
             fragment = new ToastFragment();
+        }else  if (id == R.id.nav_listview) {
+            fragment = new ListViewFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()
