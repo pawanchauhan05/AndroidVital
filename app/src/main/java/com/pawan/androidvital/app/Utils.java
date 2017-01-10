@@ -2,8 +2,15 @@ package com.pawan.androidvital.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.widget.Toast;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan;
+import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 
 /**
  * Created by pawan on 10/1/17.
@@ -83,4 +90,29 @@ public class Utils {
         else
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * to set custom font as well as size of text
+     *
+     * @param context
+     * @param message
+     */
+    public static SpannableString customFont(String message, Context context) {
+        SpannableString spannableString =  new SpannableString(message);
+        spannableString.setSpan(new RelativeSizeSpan(1.2f), 0, spannableString.length(), 0);
+        CalligraphyTypefaceSpan typefaceSpan = new CalligraphyTypefaceSpan(TypefaceUtils.load(context.getAssets(), "fonts/custom.otf"));
+        spannableString.setSpan(typefaceSpan, 0, message.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return spannableString;
+    }
+
+    /**
+     * to set custom font of text
+     *
+     * @param context
+     */
+    public static Typeface customFontText(Context context) {
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/custom.otf");
+        return typeface;
+    }
+
 }

@@ -13,11 +13,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.pawan.androidvital.R;
+import com.pawan.androidvital.app.Utils;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import org.w3c.dom.Text;
+
+public class HomeActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+
+    TextView hellotext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        hellotext = (TextView)findViewById(R.id.hellotext);
+        hellotext.setTypeface(Utils.customFontText(this));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
