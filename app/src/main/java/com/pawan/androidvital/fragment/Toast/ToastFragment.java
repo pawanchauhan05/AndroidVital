@@ -24,8 +24,8 @@ public class ToastFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_toast, container, false);
-        buttonShortToast = (Button) getActivity().findViewById(R.id.button_short_toast);
-        buttonLongToast = (Button) getActivity().findViewById(R.id.button_long_toast);
+        buttonShortToast = (Button) view.findViewById(R.id.button_short_toast);
+        buttonLongToast = (Button) view.findViewById(R.id.button_long_toast);
         buttonShortToast.setOnClickListener(this);
         return view;
     }
