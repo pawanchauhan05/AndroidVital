@@ -2,10 +2,13 @@ package com.pawan.androidvital.fragment.Toast.ListView;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,6 +45,7 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
         listview.setEnabled(true);
         listview.setOnItemClickListener(this);
         listview.setOnItemLongClickListener(this);
+        registerForContextMenu(listview);
 
         return view;
     }
@@ -53,10 +57,27 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
     }
 
     @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add("Edit company name");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        if (item.getTitle().equals("Edit company name")) {
+
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Utils.generateToast(getContext(), "item click long press ", true);
+        Utils.generateToast(getContext(), "item click long press", true);
         return false;
     }
+
 
     class CustomList extends BaseAdapter {
         private Context c;
