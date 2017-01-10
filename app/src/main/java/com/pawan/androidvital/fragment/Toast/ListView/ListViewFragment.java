@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,11 +17,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.pawan.androidvital.R;
+import com.pawan.androidvital.app.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListViewFragment extends Fragment {
+public class ListViewFragment extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     ListView listview;
 
@@ -38,8 +40,22 @@ public class ListViewFragment extends Fragment {
         CustomList adapter=new CustomList(getActivity());
         listview.setAdapter(adapter);
         listview.setEnabled(true);
+        listview.setOnItemClickListener(this);
+        listview.setOnItemLongClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+    {
+        Utils.generateToast(getContext(), "item click", true);
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Utils.generateToast(getContext(), "item click long press ", true);
+        return false;
     }
 
     class CustomList extends BaseAdapter {
