@@ -23,6 +23,10 @@
                 android:id="@+id/nav_menu"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Menu" />
+            <item
+                android:id="@+id/nav_alert"
+                android:icon="@drawable/ic_menu_share"
+                android:title="AlertDialog" />
         </menu>
     </item>
 
