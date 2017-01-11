@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
 import com.pawan.androidvital.fragment.Toast.ListView.ListViewFragment;
+import com.pawan.androidvital.fragment.Toast.Menu.MenuFragment;
 import com.pawan.androidvital.fragment.Toast.ProgressBar.ProgressBarFragment;
 import com.pawan.androidvital.fragment.Toast.SnackBar.SnackBarFragment;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
@@ -70,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.option_menu_main, menu);
         return true;
     }
 
@@ -82,7 +83,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.item1) {
+            Utils.generateToast(this, "Option menu item clicked", true);
+            return true;
+        }else if (id == R.id.item1) {
+            Utils.generateToast(this, "Option menu item clicked", true);
+            return true;
+        }else if (id == R.id.item1) {
+            Utils.generateToast(this, "Option menu item clicked", true);
             return true;
         }
 
@@ -103,6 +111,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new SnackBarFragment();
         }else if (id == R.id.nav_progressbar) {
             fragment = new ProgressBarFragment();
+        }else if (id == R.id.nav_menu) {
+            fragment = new MenuFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()

@@ -19,6 +19,10 @@
                 android:id="@+id/nav_progressbar"
                 android:icon="@drawable/ic_menu_share"
                 android:title="ProgressBar" />
+            <item
+                android:id="@+id/nav_menu"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Menu" />
         </menu>
     </item>
 
