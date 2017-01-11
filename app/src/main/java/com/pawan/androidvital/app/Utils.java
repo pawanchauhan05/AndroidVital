@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
+import android.view.View;
 import android.widget.Toast;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan;
@@ -114,6 +116,15 @@ public class Utils {
         //Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/custom.otf");
         //return typeface;
         return null;
+    }
+
+    public static void generateSnackBar(View view, String message, boolean flag) {
+        Snackbar snackbar;
+        if(flag)
+            snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+        else
+            snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 
 }

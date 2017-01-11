@@ -8,6 +8,10 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Toast" />
             <item
+                android:id="@+id/nav_snackbar"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Snack Bar" />
+            <item
                 android:id="@+id/nav_listview"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Listview" />
