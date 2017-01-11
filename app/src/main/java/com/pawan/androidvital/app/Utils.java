@@ -1,8 +1,11 @@
 package com.pawan.androidvital.app;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.text.SpannableString;
@@ -10,6 +13,8 @@ import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.Toast;
+
+import com.pawan.androidvital.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan;
 import uk.co.chrisjenx.calligraphy.TypefaceUtils;
@@ -125,6 +130,25 @@ public class Utils {
         else
             snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG);
         snackbar.show();
+    }
+
+
+    //JAVA
+    public static void showProgressBar(ProgressDialog progressDialog) {
+        progressDialog.show();
+        progressDialog.setCancelable(true);
+    }
+    //Custom
+    public static void showCustomProgressBar(ProgressDialog progressDialog) {
+
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.setCancelable(true);
+    }
+
+    public static void hideProgressBar(ProgressDialog progressDialog) {
+        progressDialog.hide();
     }
 
 }

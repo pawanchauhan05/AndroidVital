@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
 import com.pawan.androidvital.fragment.Toast.ListView.ListViewFragment;
+import com.pawan.androidvital.fragment.Toast.ProgressBar.ProgressBarFragment;
 import com.pawan.androidvital.fragment.Toast.SnackBar.SnackBarFragment;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
@@ -100,6 +101,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new ListViewFragment();
         } else if (id == R.id.nav_snackbar) {
             fragment = new SnackBarFragment();
+        }else if (id == R.id.nav_progressbar) {
+            fragment = new ProgressBarFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()
