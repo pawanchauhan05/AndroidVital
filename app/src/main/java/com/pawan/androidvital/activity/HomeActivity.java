@@ -21,10 +21,9 @@ import com.pawan.androidvital.fragment.Toast.AlertDialog.AlertDialogFragment;
 import com.pawan.androidvital.fragment.Toast.ListView.ListViewFragment;
 import com.pawan.androidvital.fragment.Toast.Menu.MenuFragment;
 import com.pawan.androidvital.fragment.Toast.ProgressBar.ProgressBarFragment;
+import com.pawan.androidvital.fragment.Toast.RecyclerView.Fragment.RecyclerViewFragment;
 import com.pawan.androidvital.fragment.Toast.SnackBar.SnackBarFragment;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
-
-import org.w3c.dom.Text;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -116,6 +115,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new MenuFragment();
         }else if (id == R.id.nav_alert) {
             fragment = new AlertDialogFragment();
+        }else if (id == R.id.nav_recycler) {
+            fragment = new RecyclerViewFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()

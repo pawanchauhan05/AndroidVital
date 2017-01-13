@@ -16,6 +16,10 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Listview" />
             <item
+                android:id="@+id/nav_recycler"
+                android:icon="@drawable/ic_menu_share"
+                android:title="RecyclerView" />
+            <item
                 android:id="@+id/nav_progressbar"
                 android:icon="@drawable/ic_menu_share"
                 android:title="ProgressBar" />
