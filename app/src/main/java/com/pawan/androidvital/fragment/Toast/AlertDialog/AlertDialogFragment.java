@@ -16,7 +16,7 @@ import com.pawan.androidvital.R;
  */
 public class AlertDialogFragment extends Fragment implements View.OnClickListener {
 
-Button showAlert, twoBtnAlert, threeBtnAlert;
+    private Button showAlert, twoBtnAlert, threeBtnAlert, customButtonAlert;
     public AlertDialogFragment() {
         // Required empty public constructor
     }
@@ -31,10 +31,12 @@ Button showAlert, twoBtnAlert, threeBtnAlert;
         showAlert = (Button)view.findViewById(R.id.show_alert);
         twoBtnAlert = (Button)view.findViewById(R.id.show_2_btn_alert);
         threeBtnAlert = (Button)view.findViewById(R.id.show_3_btn_alert);
+        customButtonAlert = (Button)view.findViewById(R.id.show_4_btn_alert);
 
         showAlert.setOnClickListener(this);
         twoBtnAlert.setOnClickListener(this);
         threeBtnAlert.setOnClickListener(this);
+        customButtonAlert.setOnClickListener(this);
 
         return view;
     }
@@ -50,6 +52,8 @@ Button showAlert, twoBtnAlert, threeBtnAlert;
         }else if (view.getId() == R.id.show_3_btn_alert) {
             ThreeButtonAlert();
 
+        } else if(view.getId() == R.id.show_4_btn_alert){
+            customAlert();
         }
 
     }
@@ -112,5 +116,16 @@ Button showAlert, twoBtnAlert, threeBtnAlert;
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void customAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        // Get the layout inflater
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(inflater.inflate(R.layout.custom_alert_dialog_layout, null));
+        builder.create().show();
     }
 }
