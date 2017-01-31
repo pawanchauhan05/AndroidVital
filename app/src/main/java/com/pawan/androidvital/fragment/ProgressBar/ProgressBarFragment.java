@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.ProgressBar;
+package com.pawan.androidvital.fragment.ProgressBar;
 
 
 import android.app.ProgressDialog;

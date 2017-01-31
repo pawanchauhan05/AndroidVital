@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.SnackBar;
+package com.pawan.androidvital.fragment.SnackBar;
 
 
 import android.os.Bundle;

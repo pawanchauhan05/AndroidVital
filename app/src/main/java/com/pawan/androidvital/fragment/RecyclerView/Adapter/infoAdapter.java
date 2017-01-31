@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.RecyclerView.Adapter;
+package com.pawan.androidvital.fragment.RecyclerView.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pawan.androidvital.R;
-import com.pawan.androidvital.fragment.Toast.RecyclerView.Model.Info;
+import com.pawan.androidvital.fragment.RecyclerView.Model.Info;
 
 import java.util.List;
 

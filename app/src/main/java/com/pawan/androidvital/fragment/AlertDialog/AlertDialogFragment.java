@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.AlertDialog;
+package com.pawan.androidvital.fragment.AlertDialog;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

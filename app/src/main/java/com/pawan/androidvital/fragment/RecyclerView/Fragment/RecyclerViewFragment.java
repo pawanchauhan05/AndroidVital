@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.RecyclerView.Fragment;
+package com.pawan.androidvital.fragment.RecyclerView.Fragment;
 
 
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pawan.androidvital.R;
-import com.pawan.androidvital.fragment.Toast.RecyclerView.Adapter.infoAdapter;
-import com.pawan.androidvital.fragment.Toast.RecyclerView.Model.Info;
+import com.pawan.androidvital.fragment.RecyclerView.Adapter.infoAdapter;
+import com.pawan.androidvital.fragment.RecyclerView.Model.Info;
 
 import java.util.ArrayList;
 import java.util.List;

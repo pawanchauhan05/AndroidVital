@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.RecyclerView.Model;
+package com.pawan.androidvital.fragment.RecyclerView.Model;
 
 /**
  * Created by divya on 13/01/17.

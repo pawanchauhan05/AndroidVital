@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.Menu;
+package com.pawan.androidvital.fragment.Menu;
 
 
 import android.content.Context;
@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
-import com.pawan.androidvital.fragment.Toast.ListView.ListViewFragment;
+import com.pawan.androidvital.fragment.ListView.ListViewFragment;
 
 /**
  * A simple {@link Fragment} subclass.

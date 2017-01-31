@@ -1,4 +1,4 @@
-package com.pawan.androidvital.fragment.Toast.androidAnnotations;
+package com.pawan.androidvital.fragment.androidAnnotations;
 
 
 import android.content.Context;
