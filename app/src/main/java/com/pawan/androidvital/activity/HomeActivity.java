@@ -17,12 +17,13 @@ import android.widget.TextView;
 
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
-import com.pawan.androidvital.fragment.Toast.AlertDialog.AlertDialogFragment;
-import com.pawan.androidvital.fragment.Toast.ListView.ListViewFragment;
-import com.pawan.androidvital.fragment.Toast.Menu.MenuFragment;
-import com.pawan.androidvital.fragment.Toast.ProgressBar.ProgressBarFragment;
-import com.pawan.androidvital.fragment.Toast.RecyclerView.Fragment.RecyclerViewFragment;
-import com.pawan.androidvital.fragment.Toast.SnackBar.SnackBarFragment;
+import com.pawan.androidvital.fragment.AlertDialog.AlertDialogFragment;
+import com.pawan.androidvital.fragment.ChooseImage.ChooseImageFragment;
+import com.pawan.androidvital.fragment.ListView.ListViewFragment;
+import com.pawan.androidvital.fragment.Menu.MenuFragment;
+import com.pawan.androidvital.fragment.ProgressBar.ProgressBarFragment;
+import com.pawan.androidvital.fragment.RecyclerView.Fragment.RecyclerViewFragment;
+import com.pawan.androidvital.fragment.SnackBar.SnackBarFragment;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -117,6 +118,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new AlertDialogFragment();
         }else if (id == R.id.nav_recycler) {
             fragment = new RecyclerViewFragment();
+        }else if (id == R.id.nav_crop_image) {
+            fragment = new ChooseImageFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()

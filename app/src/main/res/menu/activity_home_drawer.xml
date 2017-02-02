@@ -31,6 +31,10 @@
                 android:id="@+id/nav_alert"
                 android:icon="@drawable/ic_menu_share"
                 android:title="AlertDialog" />
+            <item
+                android:id="@+id/nav_crop_image"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Crop Image" />
         </menu>
     </item>
 
