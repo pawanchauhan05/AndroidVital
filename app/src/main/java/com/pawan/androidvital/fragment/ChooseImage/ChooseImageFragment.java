@@ -3,11 +3,14 @@ package com.pawan.androidvital.fragment.ChooseImage;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -106,8 +109,32 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
                 photo.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             }
         }
-
         return photo;
+    }
+
+    public Bitmap getBitmapFromDataV20(Intent intent) {
+        Uri uri = intent.getData();
+        if( uri == null ) {
+            return null;
+        }
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor;
+        if(Build.VERSION.SDK_INT > 19) {
+            String wholeID = DocumentsContract.getDocumentId(uri);
+            String id = wholeID.split(":")[1];
+            String sel = MediaStore.Images.Media._ID + "=?";
+            cursor = getActivity().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,projection, sel, new String[]{ id }, null);
+        } else {
+            cursor = getActivity().getContentResolver().query(uri, projection, null, null, null);
+        }
+        String path = null;
+        try {
+            int column_index = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            path = cursor.getString(column_index).toString();
+            cursor.close();
+        } catch(NullPointerException e) {}
+        return BitmapFactory.decodeFile(path);
     }
 
     @Override
@@ -115,7 +142,8 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == CHOICE_AVATAR_FROM_CAMERA || requestCode == CHOICE_AVATAR_FROM_GALLERY) {
                 Utils.generateToast(getContext(), "CHOICE_AVATAR_FROM_CAMERA", true);
-                Bitmap avatar = getBitmapFromData(data);
+                //Bitmap avatar = getBitmapFromData(data);
+                Bitmap avatar = getBitmapFromDataV20(data);
                 storeImage(avatar);
             } else if (requestCode == CHOICE_AVATAR_FROM_CAMERA_CROP) {
                 Intent intent = new Intent("com.android.camera.action.CROP");
