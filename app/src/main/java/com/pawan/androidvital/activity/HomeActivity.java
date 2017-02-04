@@ -23,6 +23,7 @@ import com.pawan.androidvital.fragment.ListView.ListViewFragment;
 import com.pawan.androidvital.fragment.Menu.MenuFragment;
 import com.pawan.androidvital.fragment.ProgressBar.ProgressBarFragment;
 import com.pawan.androidvital.fragment.RecyclerView.Fragment.RecyclerViewFragment;
+import com.pawan.androidvital.fragment.ScanWifi.ScanWifiFragment;
 import com.pawan.androidvital.fragment.SnackBar.SnackBarFragment;
 import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
@@ -120,6 +121,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new RecyclerViewFragment();
         }else if (id == R.id.nav_crop_image) {
             fragment = new ChooseImageFragment();
+        } else if (id == R.id.nav_scan_wifi) {
+            fragment = new ScanWifiFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()

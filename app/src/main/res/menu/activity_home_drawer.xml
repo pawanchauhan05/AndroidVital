@@ -35,6 +35,10 @@
                 android:id="@+id/nav_crop_image"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Crop Image" />
+            <item
+                android:id="@+id/nav_scan_wifi"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Scan Wifi" />
         </menu>
     </item>
 
