@@ -44,6 +44,7 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
     public static final int CHOICE_AVATAR_FROM_GALLERY = 1;
     public static final int CHOICE_AVATAR_FROM_CAMERA_CROP = 3;
     public static final int MY_PERMISSIONS_REQUEST_READ_PHOTO = 4;
+    private boolean accessPermissionGranted = true;
 
 
 
@@ -76,31 +77,36 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.button_from_gallery) {
-            int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_PHOTO);
-            } else {
-                choiceAvatarFromGallery();
+            if (Build.VERSION.SDK_INT >= 23) {
+                accessPermissionGranted = false;
+                requestPermissions();
             }
-
+            choiceAvatarFromGallery();
         } else if(id == R.id.button_from_camera) {
             choiceAvatarFromCamera();
+        }
+    }
+
+    private void requestPermissions() {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_PHOTO);
         }
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_READ_PHOTO:
-                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    choiceAvatarFromGallery();
+            case MY_PERMISSIONS_REQUEST_READ_PHOTO: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    accessPermissionGranted = true;
+                } else {
+                    accessPermissionGranted = false;
                 }
-                break;
-
-            default:
-                break;
+            }
         }
     }
+
     public void choiceAvatarFromCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraFileName = "file" + System.currentTimeMillis() + ".png";
