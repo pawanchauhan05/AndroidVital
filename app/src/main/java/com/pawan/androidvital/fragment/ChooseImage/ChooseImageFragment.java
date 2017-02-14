@@ -1,8 +1,10 @@
 package com.pawan.androidvital.fragment.ChooseImage;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,7 +14,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +43,8 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
     public static final int CHOICE_AVATAR_FROM_CAMERA = 0;
     public static final int CHOICE_AVATAR_FROM_GALLERY = 1;
     public static final int CHOICE_AVATAR_FROM_CAMERA_CROP = 3;
+    public static final int MY_PERMISSIONS_REQUEST_READ_PHOTO = 4;
+
 
 
     public ChooseImageFragment() {
@@ -56,7 +62,7 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
         return view;
     }
 
-    @Override
+   /* @Override
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.button_from_gallery) {
@@ -64,8 +70,37 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
         } else if(id == R.id.button_from_camera) {
             choiceAvatarFromCamera();
         }
-    }
+    }*/
 
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if(id == R.id.button_from_gallery) {
+            int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_PHOTO);
+            } else {
+                choiceAvatarFromGallery();
+            }
+
+        } else if(id == R.id.button_from_camera) {
+            choiceAvatarFromCamera();
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_PHOTO:
+                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    choiceAvatarFromGallery();
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
     public void choiceAvatarFromCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraFileName = "file" + System.currentTimeMillis() + ".png";
@@ -140,12 +175,19 @@ public class ChooseImageFragment extends Fragment implements View.OnClickListene
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == CHOICE_AVATAR_FROM_CAMERA || requestCode == CHOICE_AVATAR_FROM_GALLERY) {
+            if (requestCode == CHOICE_AVATAR_FROM_CAMERA ) {
                 Utils.generateToast(getContext(), "CHOICE_AVATAR_FROM_CAMERA", true);
                 //Bitmap avatar = getBitmapFromData(data);
                 Bitmap avatar = getBitmapFromDataV20(data);
                 storeImage(avatar);
-            } else if (requestCode == CHOICE_AVATAR_FROM_CAMERA_CROP) {
+            }else if(requestCode == CHOICE_AVATAR_FROM_GALLERY)
+            {
+                Utils.generateToast(getContext(), "CHOICE_AVATAR_FROM_GALLARY", true);
+                //Bitmap avatar = getBitmapFromData(data);
+                Bitmap avatar = getBitmapFromDataV20(data);
+                storeImage(avatar);
+            }
+            else if (requestCode == CHOICE_AVATAR_FROM_CAMERA_CROP) {
                 Intent intent = new Intent("com.android.camera.action.CROP");
                 Uri uri = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC), cameraFileName));
                 intent.setDataAndType(uri, "image/*");
