@@ -19,6 +19,7 @@ import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
 import com.pawan.androidvital.fragment.AlertDialog.AlertDialogFragment;
 import com.pawan.androidvital.fragment.ChooseImage.ChooseImageFragment;
+import com.pawan.androidvital.fragment.Gridview.GridViewFragment;
 import com.pawan.androidvital.fragment.ListView.ListViewFragment;
 import com.pawan.androidvital.fragment.Menu.MenuFragment;
 import com.pawan.androidvital.fragment.ProgressBar.ProgressBarFragment;
@@ -123,6 +124,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new ChooseImageFragment();
         } else if (id == R.id.nav_scan_wifi) {
             fragment = new ScanWifiFragment();
+        }else if (id == R.id.nav_grid_view) {
+            fragment = new GridViewFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()
