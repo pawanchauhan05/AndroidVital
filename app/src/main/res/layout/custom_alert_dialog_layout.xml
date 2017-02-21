@@ -12,7 +12,9 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:hint="User Name" />
+        android:hint="User Name"
+        android:textColor="@color/primary_text"
+        android:textColorHint="@color/secondary_text"/>
     <EditText
         android:id="@+id/password"
         android:inputType="textPassword"
@@ -23,5 +25,7 @@
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
-        android:hint="Password"/>
+        android:hint="Password"
+        android:textColor="@color/primary_text"
+        android:textColorHint="@color/secondary_text"/>
 </LinearLayout>

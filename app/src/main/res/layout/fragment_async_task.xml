@@ -15,6 +15,7 @@
             android:id="@+id/text_view_name"
             android:gravity="center"
             android:text="Name"
+            android:textColor="@color/primary_text"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -23,6 +24,7 @@
             android:id="@+id/text_view_email"
             android:gravity="center"
             android:text="Email"
+            android:textColor="@color/primary_text"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -31,6 +33,7 @@
             android:id="@+id/text_view_designation"
             android:gravity="center"
             android:text="Designation"
+            android:textColor="@color/primary_text"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
