@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class ProgressBarFragment extends Fragment implements View.OnClickListene
         if(view.getId() == R.id.usingjava) {
 
             ProgressDialog progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("Loading");
+            progressDialog.setMessage(Html.fromHtml("<font color='#757575'>Loading..</font>"));
             Utils.showProgressBar(progressDialog);
             progressBar.setVisibility(View.INVISIBLE);
 

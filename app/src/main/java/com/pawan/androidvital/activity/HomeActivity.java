@@ -30,8 +30,6 @@ import com.pawan.androidvital.fragment.Toast.ToastFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView hellotext;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +38,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("AndroidVital");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
-
-        //hellotext = (TextView)findViewById(R.id.hellotext);
-        //hellotext.setTypeface(Utils.customFontText(this));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

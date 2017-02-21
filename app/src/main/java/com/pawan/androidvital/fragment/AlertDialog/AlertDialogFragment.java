@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,7 @@ public class AlertDialogFragment extends Fragment implements View.OnClickListene
     {
        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
          builder.setTitle("Simple Alert Box")
-                .setMessage("Click ok button to cancel")
+                .setMessage(Html.fromHtml("<font color='#757575'>Click ok button to cancel</font>"))
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -77,7 +78,7 @@ public class AlertDialogFragment extends Fragment implements View.OnClickListene
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Simple Alert Box")
-                .setMessage("Click ok button to cancel")
+                .setMessage(Html.fromHtml("<font color='#757575'>Click ok button to cancel</font>"))
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -97,7 +98,7 @@ public class AlertDialogFragment extends Fragment implements View.OnClickListene
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Simple Alert Box")
-                .setMessage("Click ok button to cancel")
+                .setMessage(Html.fromHtml("<font color='#757575'>Click ok button to cancel</font>"))
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
