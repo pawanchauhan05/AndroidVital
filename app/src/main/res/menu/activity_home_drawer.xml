@@ -43,6 +43,14 @@
                 android:id="@+id/nav_scan_wifi"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Scan Wifi" />
+            <item
+                android:id="@+id/nav_date_picker"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Date Picker" />
+            <item
+                android:id="@+id/nav_time_picker"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Time Picker" />
         </menu>
     </item>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/android_date_picker"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".activity.HomeActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="400dp" />
+
+            <Button
+                android:id="@+id/change_date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Date" />
+
+            <TextView
+                android:id="@+id/display_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Display Date"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

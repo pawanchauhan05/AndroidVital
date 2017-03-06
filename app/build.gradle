@@ -45,20 +45,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.1.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.android.support:support-annotations:25.1.0'
+    compile 'com.android.support:support-v4:25.+'
     testCompile 'junit:junit:4.12'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
 }
