@@ -11,6 +11,7 @@
 - Scan Wifi
 - ProgressBar
 - Crop Image
+- Network
 
 > while searching on anywhere you should download this repo from here you can utilise your time.Further any modification errors or problem with code do let me know about it! 
 
