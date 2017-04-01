@@ -82,7 +82,7 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
     class CustomList extends BaseAdapter {
         private Context c;
 
-        String [] names= {"Corvi","Healthcare","Fitterfox","Envigyor","limcra","kpmg","hcl","accenture"};
+        String [] names= {"Company","Company1","Company2","Company3","Company4","Company5","Company6","accenture"};
 
         public CustomList(Context ctx)
         {
