@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
 import com.pawan.androidvital.fragment.AlertDialog.AlertDialogFragment;
+import com.pawan.androidvital.fragment.BottomSheet.BottomSheetFragment;
 import com.pawan.androidvital.fragment.ChooseImage.ChooseImageFragment;
 import com.pawan.androidvital.fragment.DatePicker.DatePickerFragment;
 import com.pawan.androidvital.fragment.Gridview.GridViewFragment;
@@ -128,7 +129,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.nav_date_picker) {
             fragment = new DatePickerFragment();
         }else if (id == R.id.nav_time_picker) {
-            fragment = new TimePickerFragment();
+            fragment = new BottomSheetFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()
