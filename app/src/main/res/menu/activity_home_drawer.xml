@@ -50,7 +50,7 @@
             <item
                 android:id="@+id/nav_time_picker"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Time Picker" />
+                android:title="Custom Chrome Tab" />
         </menu>
     </item>
 
