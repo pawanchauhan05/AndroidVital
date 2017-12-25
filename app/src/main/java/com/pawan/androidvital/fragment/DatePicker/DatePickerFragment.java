@@ -28,14 +28,14 @@ public class DatePickerFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_date_picker, container, false);
         datePicker = (DatePicker) view.findViewById(R.id.datePicker);
         displayDate = (TextView) view.findViewById(R.id.display_date);
         displayDate.setText("Display Date");
         changeDate = (Button) view.findViewById(R.id.change_date_button);
+
 
         displayDate.setText(currentDate());
         changeDate.setOnClickListener(new View.OnClickListener() {

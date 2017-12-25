@@ -25,17 +25,20 @@
                 android:layout_height="400dp" />
 
             <Button
+                android:layout_marginTop="10dp"
                 android:id="@+id/change_date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Change Date" />
 
             <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/display_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Display Date"
-                android:textSize="22sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </ScrollView>
