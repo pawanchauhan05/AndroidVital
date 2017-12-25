@@ -3,18 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="15dp"
     tools:context="com.pawan.androidvital.fragment.ChooseImage.ChooseImageFragment">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"
+        android:layout_width="240dp"
+        android:layout_height="240dp" />
+
     <Button
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
         android:id="@+id/button_from_camera"
         android:text="From Camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
         android:id="@+id/button_from_gallery"
         android:text="From Gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:id="@+id/button_from_camera_crop"
+        android:text="From Camera Crop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:id="@+id/button_from_gallery_crop"
+        android:text="From Gallery Crop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

@@ -49,7 +49,7 @@ public class ScanWifiFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scan_wifi, container, false);
-        mainWifi = (WifiManager) getActivity().getSystemService(WIFI_SERVICE);
+        mainWifi = (WifiManager) getActivity().getApplicationContext().getSystemService(WIFI_SERVICE);
         listView = (ListView) view.findViewById(R.id.list_view);
         listView.setOnItemClickListener(this);
         listView.setOnItemLongClickListener(this);
@@ -68,7 +68,7 @@ public class ScanWifiFragment extends Fragment implements AdapterView.OnItemClic
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                mainWifi = (WifiManager) getActivity().getSystemService(WIFI_SERVICE);
+                mainWifi = (WifiManager) getActivity().getApplicationContext().getSystemService(WIFI_SERVICE);
             if(receiverWifi == null)
                 receiverWifi = new WifiReceiver();
                 getActivity().registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
@@ -98,7 +98,7 @@ public class ScanWifiFragment extends Fragment implements AdapterView.OnItemClic
         wifiConfig.SSID = String.format("\"%s\"", connections.get(i).SSID);
         wifiConfig.preSharedKey = String.format("\"%s\"", "huskytomato457");
 
-        WifiManager wifiManager = (WifiManager)getActivity().getSystemService(WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager)getActivity().getApplicationContext().getSystemService(WIFI_SERVICE);
         int netId = wifiManager.addNetwork(wifiConfig);
         wifiManager.disconnect();
         wifiManager.enableNetwork(netId, true);
