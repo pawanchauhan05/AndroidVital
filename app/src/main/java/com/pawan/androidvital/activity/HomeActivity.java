@@ -128,8 +128,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new GridViewFragment();
         }else if (id == R.id.nav_date_picker) {
             fragment = new DatePickerFragment();
-        }else if (id == R.id.nav_time_picker) {
+        }else if (id == R.id.nav_chrome_tab) {
             fragment = new ChromeCustomTabFragment();
+        }else if (id == R.id.nav_time_picker) {
+            fragment = new TimePickerFragment();
         }
         getSupportFragmentManager()
                 .beginTransaction()
