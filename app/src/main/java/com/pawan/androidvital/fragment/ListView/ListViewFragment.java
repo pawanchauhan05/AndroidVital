@@ -2,10 +2,8 @@ package com.pawan.androidvital.fragment.ListView;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,10 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.pawan.androidvital.R;
@@ -27,7 +22,8 @@ import com.pawan.androidvital.app.Utils;
  */
 public class ListViewFragment extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
-    ListView listview;
+    private ListView listview;
+    private String[] names = {"IBM", "Apple", "Infosys", "TCS", "KPIT", "ITC Infotech", "Accenture"};
 
     public ListViewFragment() {
         // Required empty public constructor
@@ -35,12 +31,11 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list_view, container, false);
-        listview=(ListView)view.findViewById(R.id.list);
-        CustomList adapter=new CustomList(getActivity());
+        listview = (ListView) view.findViewById(R.id.list);
+        CustomList adapter = new CustomList(getActivity());
         listview.setAdapter(adapter);
         listview.setEnabled(true);
         listview.setOnItemClickListener(this);
@@ -51,9 +46,8 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
-    {
-        Utils.generateToast(getContext(), "item click", true);
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Utils.generateToast(getContext(), "item click " + names[i], true);
     }
 
     @Override
@@ -67,7 +61,7 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
 
         final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getTitle().equals("Edit company name")) {
-
+            // TODO: 25/12/17 add your action here
         }
         return super.onContextItemSelected(item);
     }
@@ -82,11 +76,8 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
     class CustomList extends BaseAdapter {
         private Context c;
 
-        String [] names= {"Company","Company1","Company2","Company3","Company4","Company5","Company6","accenture"};
-
-        public CustomList(Context ctx)
-        {
-            this.c=ctx;
+        public CustomList(Context ctx) {
+            this.c = ctx;
         }
 
         @Override
@@ -106,12 +97,11 @@ public class ListViewFragment extends Fragment implements AdapterView.OnItemClic
 
         @Override
         public View getView(final int pos, View convertView, ViewGroup parent) {
-            if(convertView==null)
-            {
-                LayoutInflater inflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView=inflater.inflate(R.layout.list_item,null);
+            if (convertView == null) {
+                LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.list_item, null);
             }
-            TextView nameTxt= (TextView) convertView.findViewById(R.id.nametext);
+            TextView nameTxt = (TextView) convertView.findViewById(R.id.nametext);
 
             nameTxt.setText(names[pos]);
             return convertView;

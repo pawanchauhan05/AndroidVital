@@ -11,11 +11,8 @@ import com.pawan.androidvital.fragment.RecyclerView.Model.Info;
 
 import java.util.List;
 
-/**
- * Created by divya on 13/01/17.
- */
 
-public class infoAdapter extends RecyclerView.Adapter<infoAdapter.MyViewHolder> {
+public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.MyViewHolder> {
 
     private List<Info> infoList;
 
@@ -30,7 +27,7 @@ public class infoAdapter extends RecyclerView.Adapter<infoAdapter.MyViewHolder> 
     }
 
 
-    public infoAdapter(List<Info> infoList) {
+    public InfoAdapter(List<Info> infoList) {
         this.infoList = infoList;
     }
 

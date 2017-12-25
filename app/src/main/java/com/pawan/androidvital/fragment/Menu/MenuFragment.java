@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +18,6 @@ import android.widget.TextView;
 
 import com.pawan.androidvital.R;
 import com.pawan.androidvital.app.Utils;
-import com.pawan.androidvital.fragment.ListView.ListViewFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,15 +32,14 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
-        listview=(ListView)view.findViewById(R.id.contextmenulist);
-        popupButton = (Button)view.findViewById(R.id.popupmenu);
+        listview = (ListView) view.findViewById(R.id.contextmenulist);
+        popupButton = (Button) view.findViewById(R.id.popupmenu);
 
-        CustomList adapter=new CustomList(getActivity());
+        CustomList adapter = new CustomList(getActivity());
         listview.setAdapter(adapter);
         listview.setEnabled(true);
 
@@ -52,6 +48,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
         return view;
     }
+
     /**
      * Context menu
      *
@@ -73,21 +70,21 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         if (item.getTitle().equals("Edit company name")) {
             Utils.generateToast(getContext(), "Edit clicked", true);
 
-        }else if(item.getTitle().equals("Remove company")) {
+        } else if (item.getTitle().equals("Remove company")) {
             Utils.generateToast(getContext(), "Remove clicked", true);
         }
         return super.onContextItemSelected(item);
     }
+
     /**
      * Popup menu
      *
      * @param view
-     *
      */
     @Override
     public void onClick(View view) {
 
-        PopupMenu popupMenu = new PopupMenu(getActivity(),popupButton);
+        PopupMenu popupMenu = new PopupMenu(getActivity(), popupButton);
         popupMenu.getMenuInflater().inflate(R.menu.poupup_menu, popupMenu.getMenu());
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -102,18 +99,16 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         popupMenu.show();
 
     }
+
     /**
      * Custom Adapter
-     *
-     *
      */
     class CustomList extends BaseAdapter {
         private Context c;
-        String [] names= {"Company1","Company2","Company3"};
+        String[] names = {"Android", "Java", "XML"};
 
-        public CustomList(Context ctx)
-        {
-            this.c=ctx;
+        public CustomList(Context ctx) {
+            this.c = ctx;
         }
 
         @Override
@@ -133,12 +128,11 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
         @Override
         public View getView(final int pos, View convertView, ViewGroup parent) {
-            if(convertView==null)
-            {
-                LayoutInflater inflater=(LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView=inflater.inflate(R.layout.list_item,null);
+            if (convertView == null) {
+                LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.list_item, null);
             }
-            TextView nameTxt= (TextView) convertView.findViewById(R.id.nametext);
+            TextView nameTxt = (TextView) convertView.findViewById(R.id.nametext);
 
             nameTxt.setText(names[pos]);
             return convertView;

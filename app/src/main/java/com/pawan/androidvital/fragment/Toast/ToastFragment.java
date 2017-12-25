@@ -40,16 +40,24 @@ public class ToastFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.button_short_toast) {
-            Utils.generateToast(getContext(), "Short Toast", true);
-        } else if(view.getId() == R.id.button_long_toast) {
-            Utils.generateToast(getContext(), "Long Toast", true);
-        } else if(view.getId() == R.id.button_custom_toast) {
-            Toast toast = new Toast(getContext());
-            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-            toast.setDuration(Toast.LENGTH_LONG);
-            toast.setView(toastLayout);
-            toast.show();
+
+        switch (view.getId()) {
+            case R.id.button_short_toast:
+                Utils.generateToast(getContext(), "Short Toast", true);
+                break;
+
+            case R.id.button_long_toast:
+                Utils.generateToast(getContext(), "Long Toast", true);
+                break;
+
+            case R.id.button_custom_toast:
+                Toast toast = new Toast(getContext());
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(toastLayout);
+                toast.show();
+                break;
         }
+
     }
 }

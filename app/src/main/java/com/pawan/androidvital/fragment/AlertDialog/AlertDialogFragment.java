@@ -24,8 +24,7 @@ public class AlertDialogFragment extends Fragment implements View.OnClickListene
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_alert_dialog, container, false);
 
@@ -44,18 +43,25 @@ public class AlertDialogFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.show_alert) {
-            SimpleShowAlert();
 
-        }else if (view.getId() == R.id.show_2_btn_alert) {
-            TwoButtonAlert();
+        switch (view.getId()) {
+            case R.id.show_alert:
+                SimpleShowAlert();
+                break;
 
-        }else if (view.getId() == R.id.show_3_btn_alert) {
-            ThreeButtonAlert();
+            case R.id.show_2_btn_alert:
+                TwoButtonAlert();
+                break;
 
-        } else if(view.getId() == R.id.show_4_btn_alert){
-            customAlert();
+            case R.id.show_3_btn_alert:
+                ThreeButtonAlert();
+                break;
+
+            case R.id.show_4_btn_alert:
+                customAlert();
+                break;
         }
+
 
     }
 
@@ -120,13 +126,22 @@ public class AlertDialogFragment extends Fragment implements View.OnClickListene
     }
 
     private void customAlert() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.custom_alert_dialog_layout, null));
-        builder.create().show();
+        View view = inflater.inflate(R.layout.custom_alert_dialog_layout, null);
+
+        builder.setView(view);
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        view.findViewById(R.id.buttonSubmit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
     }
 }

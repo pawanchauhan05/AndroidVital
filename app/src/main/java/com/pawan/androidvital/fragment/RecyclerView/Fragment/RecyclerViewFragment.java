@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pawan.androidvital.R;
-import com.pawan.androidvital.fragment.RecyclerView.Adapter.infoAdapter;
+import com.pawan.androidvital.fragment.RecyclerView.Adapter.InfoAdapter;
 import com.pawan.androidvital.fragment.RecyclerView.Model.Info;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class RecyclerViewFragment extends Fragment {
 
     private List<Info> infoList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private infoAdapter mAdapter;
+    private InfoAdapter mAdapter;
 
     public RecyclerViewFragment() {
         // Required empty public constructor
@@ -32,13 +32,12 @@ public class RecyclerViewFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
-        mAdapter = new infoAdapter(infoList);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mAdapter = new InfoAdapter(infoList);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -50,9 +49,8 @@ public class RecyclerViewFragment extends Fragment {
         return view;
     }
 
-    private void infoData()
-    {
-        Info info = new Info("Divya","Institute : Sunbeam Pune");
+    private void infoData() {
+        Info info = new Info("Divya", "Institute : Sunbeam Pune");
         infoList.add(info);
 
         info = new Info("Pawan", "Institute : Sunbeam Pune");

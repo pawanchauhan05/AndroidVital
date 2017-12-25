@@ -20,6 +20,7 @@ public class SnackBarFragment extends Fragment implements View.OnClickListener {
 
     private Button buttonShortSnackBar, buttonLongSnackBar, buttonCustomSnackBar;
     private View view;
+
     public SnackBarFragment() {
         // Required empty public constructor
     }
@@ -41,16 +42,22 @@ public class SnackBarFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.button_short_snack_bar) {
-            Utils.generateSnackBar(getView(), "Short Snack Bar", true);
-        } else if(view.getId() == R.id.button_long_snack_bar) {
-            Utils.generateSnackBar(getView(), "Long Snack Bar", false);
-        } else if(view.getId() == R.id.button_custom_snack_bar) {
-            customSnackbar();
+        switch (view.getId()) {
+            case R.id.button_short_snack_bar:
+                Utils.generateSnackBar(getView(), "Short Snack Bar", true);
+                break;
+
+            case R.id.button_long_snack_bar:
+                Utils.generateSnackBar(getView(), "Long Snack Bar", false);
+                break;
+
+            case R.id.button_custom_snack_bar:
+                //customSnackBar();
+                break;
         }
     }
 
-    private void customSnackbar() {
+    private void customSnackBar() {
         Snackbar snackbar = Snackbar.make(getView(), "", Snackbar.LENGTH_LONG);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
         TextView textView = (TextView) layout.findViewById(android.support.design.R.id.snackbar_text);
