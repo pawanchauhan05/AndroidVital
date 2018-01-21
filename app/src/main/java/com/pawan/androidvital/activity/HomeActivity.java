@@ -132,6 +132,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new ChromeCustomTabFragment();
         }else if (id == R.id.nav_time_picker) {
             fragment = new TimePickerFragment();
+        } else if(id == R.id.nav_share) {
+            return true;
+        } else if(id == R.id.nav_send) {
+            return true;
         }
         getSupportFragmentManager()
                 .beginTransaction()
