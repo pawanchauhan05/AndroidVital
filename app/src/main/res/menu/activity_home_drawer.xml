@@ -55,6 +55,11 @@
                 android:id="@+id/nav_chrome_tab"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Custom Chrome Tab" />
+
+            <item
+                android:id="@+id/nav_bottom_sheet"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Bottom Sheet" />
         </menu>
     </item>
 
